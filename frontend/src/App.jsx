@@ -1,4 +1,5 @@
 import PhotoList from './components/PhotoList';
+import TopicList from './components/TopicList';
 import './App.scss';
 
 // const sampleDataForPhotoListItem = {
@@ -27,6 +28,7 @@ const App = () => {
       {/* {sampleArray.map((sample) => {
         return <PhotoListItem key = {sample.id} photo={sample} />
       })} */}
+      <TopicList />
       <PhotoList />
     </div>
   );
