@@ -1,4 +1,4 @@
-import FavBadge from './FavBadge';
+import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 import { useState } from "react";
 
@@ -6,12 +6,15 @@ import { useState } from "react";
 const PhotoFavButton = (props) => {
   const [fav, setFav] = useState(true);
   
-  const handleClick = () => setFav(fav === true ? false : true);
-  
+  const handleClick = () => {
+    setFav(fav === true ? false : true);
+    console.log("fav:", fav);
+  }
+
   return (
     <div className="photo-list__fav-icon">
-      <div className = "photo-list__fav-icon-svg">
-          {fav && < FavBadge onClick = {handleClick} />}
+      <div onClick = {handleClick} >
+        < FavIcon selected={fav} />
       </div>
     </div>
   );
