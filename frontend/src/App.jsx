@@ -1,6 +1,6 @@
 import PhotoList from './components/PhotoList';
-import TopicList from './components/TopicList';
 import './App.scss';
+import TopNavigation from './components/TopNavigationBar';
 
 // const sampleDataForPhotoListItem = {
 //   id: 1,
@@ -22,13 +22,9 @@ import './App.scss';
 // Note: Rendering a single component to build components in isolation
 
 const App = () => {
-  // const sampleArray = [sampleDataForPhotoListItem, sampleDataForPhotoListItem, sampleDataForPhotoListItem];
   return (
     <div className="App">
-      {/* {sampleArray.map((sample) => {
-        return <PhotoListItem key = {sample.id} photo={sample} />
-      })} */}
-      <TopicList />
+      <TopNavigation />
       <PhotoList />
     </div>
   );
