@@ -4,18 +4,14 @@ import { useState } from "react";
 
 
 const PhotoFavButton = (props) => {
-  const [fav, setFav] = useState(true);
   
-  const handleClick = () => {
-    setFav(fav === true ? false : true);
-    console.log("fav:", fav);
+  const handleClick = (id) => {
+    props.checkFav(id);
   }
 
   return (
-    <div className="photo-list__fav-icon">
-      <div onClick = {handleClick} >
-        < FavIcon selected={fav} />
-      </div>
+    <div className="photo-list__fav-icon" onClick = {() => handleClick(props.photoId)}>
+      < FavIcon selected={props.favlist.includes(props.photoId)} />
     </div>
   );
 };
