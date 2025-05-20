@@ -3,6 +3,7 @@ import PhotoFavButton from './PhotoFavButton';
 
 const PhotoListItem = (props) => {
   const photo = props.photo;
+  // console.log("photo from card", photo);
   return (
     <div className = "photo-list__item" onClick ={() => props.openModal(photo)}>
       < PhotoFavButton favlist={props.favlist} photoId={photo.id} checkFav={props.checkFav}/>
