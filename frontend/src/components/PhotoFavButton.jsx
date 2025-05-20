@@ -6,7 +6,7 @@ import { useState } from "react";
 const PhotoFavButton = (props) => {
   
   const handleClick = (id) => {
-    props.checkFav(id);
+    props.checkFav(id, props.favlist);
   }
 
   return (
