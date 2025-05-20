@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useReducer } from "react";
 
 const useApplicationData = () => {
   const initialState = {
@@ -36,5 +37,43 @@ const useApplicationData = () => {
   }
 };
 
-
 export default useApplicationData;
+
+
+
+// const initialState = {
+//   modal: false,
+//   photoModalDetails: {},
+//   favList: []
+// }
+
+// const [state, dispatch] = useReducer(reducer, initialState);
+
+// export const ACTIONS = {
+//   closeModal: 'closeModal',
+//   openModal: 'openModal',
+//   checkFav: 'checkFav'
+// }
+
+// function reducer(state, action) {
+//   switch (action.type) {
+//     case ACTIONS.closeModal:
+//       return {...state, modal:false}
+//     case ACTIONS.openModal:
+//       return {...state, modal:true, photoModalDetails: photosDetail}
+//     case ACTIONS.checkFav:
+//       let newList = null;
+//       if(state.favList.includes(id)) {
+//         newList = favList.filter((item) => item !== id)
+//       } else {
+//         newList = [...favList, id]
+//       }
+//       return {...state, favList:newList}
+//     default:
+//       throw new Error(
+//         `Tried to reduce with unsupported action type: ${action.type}`
+//       );
+//   }
+// }
+// export default reducer;
+

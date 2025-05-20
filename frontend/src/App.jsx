@@ -14,6 +14,7 @@ const App = () => {
     closeModal
   } = useApplicationData();
   console.log("inside app.jsx");
+
   return (
     <div className="App">
       <HomeRoute topics ={Topics} photos={Photos} openModal = {openModal} checkFav={checkFav} favlist={state.favList} />
