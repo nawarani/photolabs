@@ -7,3 +7,11 @@ const server = require("http").Server(app);
 server.listen(PORT, () => {
   console.log(`Listening on port ${PORT} in ${ENV} mode.`);
 });
+
+app.get("/api/photos", (req, res) => {
+  console.log(res);
+  // create an array from the todoData object
+  // const data = Object.values(todoData);
+
+  // res.json(data);
+});

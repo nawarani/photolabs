@@ -3,7 +3,9 @@ import { useReducer } from "react";
 const ACTIONS = {
   CLOSE_MODAL: 'closeModal',
   OPEN_MODAL: 'openModal',
-  TOGGLE_FAV: 'checkFav'
+  TOGGLE_FAV: 'checkFav',
+  SET_PHOTOS: 'getPhotos',
+  SET_TOPICS: 'getTopics'
 }
 
 function reducer(state, action) {
@@ -20,6 +22,10 @@ function reducer(state, action) {
         newList = [...state.favList, action.payload]
       }
       return {...state, favList:newList}
+    case ACTIONS.SET_PHOTOS:
+      return {...state, photoData: action.payload}
+    case ACTIONS.SET_TOPICS:
+      return {...state, topicData: action.payload}
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
@@ -30,7 +36,9 @@ function reducer(state, action) {
 const initialState = {
   modal: false,
   photoModalDetails: {},
-  favList: []
+  favList: [],
+  photoData: [],
+  topicData: []
 }
 
 
@@ -38,13 +46,11 @@ const useApplicationData = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  
   const closeModal = () => {
     dispatch({type: ACTIONS.CLOSE_MODAL});
   }
 
   const openModal = (photosDetail) => {
-    console.log("inside openmodal", photosDetail);
     dispatch({type: ACTIONS.OPEN_MODAL, payload: photosDetail});
   }
 
@@ -58,11 +64,21 @@ const useApplicationData = () => {
     dispatch({type: ACTIONS.TOGGLE_FAV, payload: id});
   }
 
+  const setPhotos = (photos) => {
+    dispatch({type: ACTIONS.SET_PHOTOS, payload: photos})
+  }
+
+  const setTopics = (topics) => {
+    dispatch({type: ACTIONS.SET_TOPICS, payload: topics})
+  }
+
   return {
     state,
     openModal,
     checkFav,
-    closeModal
+    closeModal,
+    setPhotos,
+    setTopics
   }
 };
 
