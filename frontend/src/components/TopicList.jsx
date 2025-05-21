@@ -7,7 +7,7 @@ const TopicList = (props) => {
     <div className="top-nav-bar__topic-list">
       <ul className="topic-list">
         {props.topics.map(topic => (
-          <TopicListItem key={topic.id} topic={topic} />
+          <TopicListItem key={topic.id} topic={topic} filterByTopic={props.filterByTopic} />
         ))}
       </ul>
     </div>

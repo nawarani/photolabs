@@ -5,7 +5,8 @@ const ACTIONS = {
   OPEN_MODAL: 'openModal',
   TOGGLE_FAV: 'checkFav',
   SET_PHOTOS: 'getPhotos',
-  SET_TOPICS: 'getTopics'
+  SET_TOPICS: 'getTopics',
+  TOGGLE_TOPIC: 'filterByTopic'
 }
 
 function reducer(state, action) {
@@ -26,6 +27,10 @@ function reducer(state, action) {
       return {...state, photoData: action.payload}
     case ACTIONS.SET_TOPICS:
       return {...state, topicData: action.payload}
+    case ACTIONS.TOGGLE_TOPIC:
+      // photodata is not action.payload. photodata needs to be gotten by a get request using action.payload which contains the topic
+      // GET_PHOTOS_BY_TOPICS: http://localhost:8001/api/topics/:topic_id/photos.
+      return {...state, photoData: action.payload}
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
@@ -72,13 +77,18 @@ const useApplicationData = () => {
     dispatch({type: ACTIONS.SET_TOPICS, payload: topics})
   }
 
+  const filterByTopic = (topic) => {
+    dispatch({type: ACTIONS.TOGGLE_TOPIC, payload: topic})
+  }
+
   return {
     state,
     openModal,
     checkFav,
     closeModal,
     setPhotos,
-    setTopics
+    setTopics,
+    filterByTopic
   }
 };
 
