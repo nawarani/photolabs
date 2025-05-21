@@ -5,7 +5,6 @@ import PhotoList from '../components/PhotoList';
 
 const PhotoDetailsModal = (props) => {
   const photo = props.photoModalDetails;
-  console.log("photo", photo);
   return (
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button" onClick={() => props.closeModal()}>

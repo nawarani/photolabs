@@ -28,8 +28,6 @@ function reducer(state, action) {
     case ACTIONS.SET_TOPICS:
       return {...state, topicData: action.payload}
     case ACTIONS.TOGGLE_TOPIC:
-      // photodata is not action.payload. photodata needs to be gotten by a get request using action.payload which contains the topic
-      // GET_PHOTOS_BY_TOPICS: http://localhost:8001/api/topics/:topic_id/photos.
       return {...state, photoData: action.payload}
     default:
       throw new Error(
@@ -78,7 +76,9 @@ const useApplicationData = () => {
   }
 
   const filterByTopic = (topic) => {
-    dispatch({type: ACTIONS.TOGGLE_TOPIC, payload: topic})
+    fetch(`api/topics/${topic.id}/photos`)
+      .then(res => res.json())
+      .then(data => dispatch({type: ACTIONS.TOGGLE_TOPIC, payload: data}));
   }
 
   return {

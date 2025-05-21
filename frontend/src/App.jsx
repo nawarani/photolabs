@@ -17,16 +17,12 @@ const App = () => {
   } = useApplicationData();
 
   useEffect(() => {
-    // use the fetch API to make an AJAX request to the backend
     fetch('/api/photos')
-      .then((res) => {
-        res.json()
-      })
+      .then(res => res.json())
       .then(data => setPhotos(data));
   }, []);
 
   useEffect(() => {
-    // use the fetch API to make an AJAX request to the backend
     fetch('/api/topics')
       .then(res => res.json())
       .then(data => setTopics(data))

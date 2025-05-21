@@ -3,7 +3,6 @@ import PhotoFavButton from './PhotoFavButton';
 
 const PhotoListItem = (props) => {
   const photo = props.photo;
-  // console.log("props from card", props);
   return (
     <div className = "photo-list__item">
       < PhotoFavButton favlist={props.favlist} photoId={photo.id} checkFav={props.checkFav}/>

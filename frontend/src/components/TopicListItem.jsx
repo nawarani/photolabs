@@ -9,9 +9,9 @@ const sampleDataForTopicListItem = {
 const TopicListItem = (props) => {
   const topic = props.topic;
   return (
-    <div className="topic-list__item" onClick={() => props.filterByTopic(topic)}>
+    <li className="topic-list__item" onClick={() => props.filterByTopic(topic)}>
       <span>{topic.title}</span>
-    </div>
+    </li>
   );
 };
 
